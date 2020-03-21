@@ -2203,6 +2203,10 @@ build_ffmpeg() {
       # this one kills gdb workability for static build? ai ai [?] XXXX
       config_options+=" --disable-libgme"
     fi
+
+	  #ffmpeg minimal options (no codecs)
+    config_options="$init_options --enable-static --disable-shared --enable-gpl --enable-version3 --enable-sdl2 --enable-fontconfig --enable-gnutls --enable-iconv --enable-libass"
+
     config_options+=" $extra_postpend_configure_options"
 
     do_configure "$config_options"
@@ -2481,7 +2485,7 @@ ffmpeg_git_checkout_version=
 build_ismindex=n
 enable_gpl=y
 build_x264_with_libav=n # To build x264 with Libavformat.
-ffmpeg_git_checkout="https://github.com/FFmpeg/FFmpeg.git"
+ffmpeg_git_checkout="https://github.com/woorak/FFmpeg.git"
 ffmpeg_source_dir=
 
 # parse command line parameters, if any
